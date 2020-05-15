@@ -11,11 +11,17 @@ public class Lab3_JoshuaMartinez_DavidReyes {
     public static void main(String[] args) throws ParseException {
         char resp = 's';
         Scanner input = new Scanner(System.in);
-        int opcion, opc2, opc3, opc4;
+        int opcion, opc2, opc3, opc4, opc5;
         String horario, ID, username, contraseña, correo, f;
+        String descripcion, nombre;
+        double precio;
         Date nacimiento;
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         ArrayList<Personas> lista = new ArrayList();
+        ArrayList<Locales> lista2 = new ArrayList();
+        ArrayList<Productos> lista3 = new ArrayList();
+        ArrayList empleados = new ArrayList();
+        ArrayList productos = new ArrayList();
 
         while (resp == 's' || resp == 'S') {
             System.out.print("1 log in y sig in");
@@ -59,20 +65,140 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                             }
                             switch (tipo) {
                                 case 1:
-
                                     while (resp == 's' || resp == 'S') {
                                         System.out.print("1. crear local");
                                         System.out.println("2. crear productos");
-                                        System.out.println("3 crear crear empleados");
+                                        System.out.println("3. crear crear empleados");
+                                        System.out.println("4. Eliminar");
                                         System.out.print("Ingrese opcion: ");
                                         opc4 = input.nextInt();
                                         switch (opc4) {
                                             case 1:
+                                                System.out.print("1. crear tienda");
+                                                System.out.println("2. crear quiosco");
+                                                System.out.println("3. crear bar");
+                                                System.out.print("Ingrese opcion: ");
+                                                opc3 = input.nextInt();
+                                                switch (opc3) {
+                                                    case 1:
+                                                        System.out.print("Ingrese nombre del local: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        for (Object o : lista) {
+                                                            if (o instanceof Empleados) {
+                                                                empleados.add(o);
+                                                            }
+                                                        }
+                                                        for (Object u : lista3) {
+                                                            if (u instanceof Comida) {
 
+                                                            } else {
+                                                                productos.add(u);
+                                                            }
+                                                        }
+                                                        Tiendas t = new Tiendas(nombre, empleados, productos, empleados.get(0));
+                                                        lista2.add(t);
+                                                        break;
+                                                    case 2:
+                                                        System.out.print("Ingrese nombre del local: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        for (Object o : lista) {
+                                                            if (o instanceof Empleados) {
+                                                                empleados.add(o);
+                                                            }
+                                                        }
+                                                        for (Object u : lista3) {
+                                                            if (u instanceof Comida) {
+
+                                                            } else {
+                                                                productos.add(u);
+                                                            }
+                                                        }
+                                                        Quiosco q = new Quiosco(nombre, empleados, productos, gerente);
+                                                        lista2.add(q);
+                                                        break;
+
+                                                    case 3:
+                                                        System.out.print("Ingrese nombre del local: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        for (Object o : lista) {
+                                                            if (o instanceof Empleados) {
+                                                                empleados.add(o);
+                                                            }
+                                                        }
+                                                        for (Object u : lista3) {
+                                                            if (u instanceof Comida) {
+                                                                productos.add(u);
+                                                            } 
+                                                        }
+                                                        Bares b = new Bares(nombre, empleados, productos, gerente);
+                                                        lista2.add(b);
+                                                        break;
+                                                }//fin crear locales
                                                 break;
 
                                             case 2:
+                                                System.out.println("1. crear ropa");
+                                                System.out.println("2. crear juguetes");
+                                                System.out.println("3. crear comida");
+                                                System.out.print("Ingrese una opcion: ");
+                                                opc5 = input.nextInt();
+                                                switch (opc5) {
+                                                    case 1:
+                                                        String genero,
+                                                         talla;
+                                                        System.out.print("Ingrese la descripcion: ");
+                                                        input = new Scanner(System.in);
+                                                        descripcion = input.nextLine();
+                                                        System.out.print("Ingrese el nombre: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        System.out.print("Ingrese el Precio: ");
+                                                        precio = input.nextDouble();
+                                                        System.out.print("Ingrese genero: ");
+                                                        genero = input.next();
+                                                        System.out.print("Ingrese la talla: ");
+                                                        talla = input.next();
+                                                        Ropa r = new Ropa(genero, talla, descripcion, nombre, precio);
+                                                        lista3.add(r);
+                                                        break;
 
+                                                    case 2:
+                                                        System.out.print("Ingrese la descripcion: ");
+                                                        input = new Scanner(System.in);
+                                                        descripcion = input.nextLine();
+                                                        System.out.print("Ingrese el nombre: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        System.out.print("Ingrese el Precio: ");
+                                                        precio = input.nextDouble();
+                                                        Jueguetes j = new Jueguetes(descripcion, nombre, precio);
+                                                        lista3.add(j);
+                                                        break;
+
+                                                    case 3:
+                                                        String tip,
+                                                         fecha;
+                                                        Date caducidad;
+                                                        System.out.print("Ingrese la descripcion: ");
+                                                        input = new Scanner(System.in);
+                                                        descripcion = input.nextLine();
+                                                        System.out.print("Ingrese el nombre: ");
+                                                        input = new Scanner(System.in);
+                                                        nombre = input.nextLine();
+                                                        System.out.print("Ingrese el precio");
+                                                        precio = input.nextDouble();
+                                                        System.out.print("Ingrese el tipo de comida: ");
+                                                        tip = input.next();
+                                                        System.out.print("Ingrese la fecha de caducidad(dd/MM/yyyy): ");
+                                                        fecha = input.next();
+                                                        caducidad = df.parse(fecha);
+                                                        Comida co = new Comida(tip, caducidad, descripcion, nombre, precio);
+                                                        lista3.add(co);
+                                                        break;
+                                                }//fin crear productos
                                                 break;
 
                                             case 3:
