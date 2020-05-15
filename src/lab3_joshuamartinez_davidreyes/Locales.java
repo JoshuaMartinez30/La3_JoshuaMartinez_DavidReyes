@@ -6,13 +6,13 @@ public class Locales {
 
     String nombrelocal;
     ArrayList<Empleados> lista;
-    ArrayList listp;
+    ArrayList<Productos> listp;
     Empleados gerente;
 
     public Locales() {
     }
 
-    public Locales(String nombrelocal, ArrayList<Empleados> lista, ArrayList listp, Empleados gerente) {
+    public Locales(String nombrelocal, ArrayList<Empleados> lista, ArrayList<Productos> listp, Empleados gerente) {
         super();
         this.nombrelocal = nombrelocal;
         this.lista = lista;

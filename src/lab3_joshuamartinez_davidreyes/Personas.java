@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Personas {
-    ArrayList<String> ID;
-    ArrayList<String> username;
-    ArrayList<String> contra;
+    String ID;
+    String username;
+    String contra;
     String Correo;
     Date nacimiento;
 
     public Personas() {
     }
 
-    public Personas(ArrayList<String> ID, ArrayList<String> username, ArrayList<String> contra, String Correo, Date nacimiento) {
+    public Personas(String ID, String username, String contra, String Correo, Date nacimiento) {
         super();
         this.ID = ID;
         this.username = username;
@@ -22,27 +22,27 @@ public class Personas {
         this.nacimiento = nacimiento;
     }
 
-    public ArrayList<String> getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(ArrayList<String> ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public ArrayList<String> getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(ArrayList<String> username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public ArrayList<String> getContra() {
+    public String getContra() {
         return contra;
     }
 
-    public void setContra(ArrayList<String> contra) {
+    public void setContra(String contra) {
         this.contra = contra;
     }
 
