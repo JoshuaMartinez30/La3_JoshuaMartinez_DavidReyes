@@ -10,10 +10,10 @@ public class Empleados extends Personas{
     public Empleados() {
     }
 
-    public Empleados(String horario, int ventas, ArrayList<String> ID, ArrayList<String> username, ArrayList<String> contra, String Correo, Date nacimiento) {
+    public Empleados(String horario, ArrayList<String> ID, ArrayList<String> username, ArrayList<String> contra, String Correo, Date nacimiento) {
         super(ID, username, contra, Correo, nacimiento);
         this.horario = horario;
-        this.ventas = ventas;
+        
     }
 
     public String getHorario() {
