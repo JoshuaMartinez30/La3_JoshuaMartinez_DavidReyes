@@ -96,7 +96,7 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                                 productos.add(u);
                                                             }
                                                         }
-                                                        Tiendas t = new Tiendas(nombre, empleados, productos, empleados.get(0));
+                                                        Tiendas t = new Tiendas(nombre, empleados, productos, empleados.get(0).toString());
                                                         lista2.add(t);
                                                         break;
                                                     case 2:
@@ -146,24 +146,7 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                 System.out.print("Ingrese una opcion: ");
                                                 opc5 = input.nextInt();
                                                 switch (opc5) {
-                                                    case 1:
-                                                        String genero,
-                                                         talla;
-                                                        System.out.print("Ingrese la descripcion: ");
-                                                        input = new Scanner(System.in);
-                                                        descripcion = input.nextLine();
-                                                        System.out.print("Ingrese el nombre: ");
-                                                        input = new Scanner(System.in);
-                                                        nombre = input.nextLine();
-                                                        System.out.print("Ingrese el Precio: ");
-                                                        precio = input.nextDouble();
-                                                        System.out.print("Ingrese genero: ");
-                                                        genero = input.next();
-                                                        System.out.print("Ingrese la talla: ");
-                                                        talla = input.next();
-                                                        Ropa r = new Ropa(genero, talla, descripcion, nombre, precio);
-                                                        lista3.add(r);
-                                                        break;
+                                                    
 
                                                     case 2:
                                                         System.out.print("Ingrese la descripcion: ");

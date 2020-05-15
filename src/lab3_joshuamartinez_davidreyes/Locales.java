@@ -7,12 +7,12 @@ public class Locales {
     String nombrelocal;
     ArrayList<Empleados> lista;
     ArrayList<Productos> listp;
-    Empleados gerente;
+    String gerente;
 
     public Locales() {
     }
 
-    public Locales(String nombrelocal, ArrayList<Empleados> lista, ArrayList<Productos> listp, Empleados gerente) {
+    public Locales(String nombrelocal, ArrayList<Empleados> lista, ArrayList<Productos> listp, String gerente) {
         super();
         this.nombrelocal = nombrelocal;
         this.lista = lista;
@@ -36,11 +36,11 @@ public class Locales {
         this.listp = listp;
     }
 
-    public Empleados getGerente() {
+    public String getGerente() {
         return gerente;
     }
 
-    public void setGerente(Empleados gerente) {
+    public void setGerente(String gerente) {
         this.gerente = gerente;
     }
 

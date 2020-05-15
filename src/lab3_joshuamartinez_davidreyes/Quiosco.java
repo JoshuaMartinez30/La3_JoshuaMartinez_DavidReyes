@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Quiosco extends Locales{
 
-    public Quiosco(String nombrelocal, ArrayList<Empleados> lista, ArrayList<Productos> listp, Empleados gerente) {
+    public Quiosco(String nombrelocal, ArrayList<Empleados> lista, ArrayList<Productos> listp, String gerente) {
         super(nombrelocal, lista, listp, gerente);
     }
     
