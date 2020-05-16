@@ -72,7 +72,8 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                         System.out.println("1. crear local");
                                         System.out.println("2. crear productos");
                                         System.out.println("3. crear crear empleados");
-                                        System.out.println("4. Eliminar");
+                                        System.out.println("4. Modificar");
+                                        System.out.println("5. Eliminar");
                                         System.out.print("Ingrese opcion: ");
                                         opc4 = input.nextInt();
                                         switch (opc4) {
@@ -221,7 +222,247 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                 Empleados e = new Empleados(horario, ID, username, contraseña, correo, nacimiento);
                                                 lista.add(e);
                                                 break;
+
                                             case 4:
+                                                System.out.println("1. Modificar Locales");
+                                                System.out.println("2. Modificar Persona");
+                                                System.out.print("Ingrese una opcion: ");
+                                                opcion = input.nextInt();
+                                                switch (opcion) {
+                                                    case 1:
+                                                        int pos;
+                                                        for (Object t : lista2) {
+                                                            System.out.println(lista2.indexOf(t) + ") " + t);
+                                                        }
+                                                        System.out.print("Ingrese la posicion del local que desea Modificar: ");
+                                                        pos = input.nextInt();
+                                                        System.out.println("1. Modificar nombre");
+                                                        System.out.println("2. Modificar Empleados");
+                                                        System.out.println("3. Modificar Productos");
+                                                        System.out.println("4. Modiifcar gerente");
+                                                        int opcionm = input.nextInt();
+                                                        switch (opcionm) {
+                                                            case 1:
+                                                                System.out.println("Ingrese el nuevo nombre del local");
+                                                                input = new Scanner(System.in);
+                                                                nombre = input.nextLine();
+                                                                lista2.get(pos).setNombrelocal(nombre);
+                                                                System.out.println("Modificacion Correcta");
+                                                                break;
+
+                                                            case 2:
+                                                                for (Object r : lista2.get(pos).getLista()) {
+                                                                    System.out.println(lista2.get(pos).getLista().indexOf(r) + ") " + r);
+                                                                }
+                                                                System.out.print("Ingrese la posicion del empleado a modificar: ");
+                                                                pos = input.nextInt();
+                                                                int pos5;
+                                                                System.out.println("1. Horario Modificar");
+                                                                System.out.println("2. ID Modificar");
+                                                                System.out.println("3. Username Modificar");
+                                                                System.out.println("4. Contra Modificar");
+                                                                System.out.println("5. Correo Modificar");
+                                                                System.out.println("6. Fecha Modificar");
+                                                                System.out.print("Ingrese la posicion a modificar: ");
+                                                                pos5 = input.nextInt();
+                                                                switch (pos5) {
+                                                                    case 1:
+                                                                        System.out.print("Ingrese nuevo Horario: ");
+                                                                        horario = input.next();
+                                                                        lista2.get(pos).getLista().get(pos).setHorario(horario);
+                                                                        break;
+
+                                                                    case 2:
+                                                                        System.out.print("Ingrese nuevo ID: ");
+                                                                        ID = input.next();
+                                                                        lista2.get(pos).getLista().get(pos).setID(ID);
+                                                                        break;
+
+                                                                    case 3:
+                                                                        System.out.print("Ingrese nuevo username: ");
+                                                                        username = input.next();
+                                                                        lista2.get(pos).getLista().get(pos).setUsername(username);
+                                                                        break;
+
+                                                                    case 4:
+                                                                        System.out.print("Ingrese nuevo Contraseña: ");
+                                                                        contraseña = input.next();
+                                                                        lista2.get(pos).getLista().get(pos).setContra(contraseña);
+                                                                        break;
+
+                                                                    case 5:
+                                                                        System.out.print("Ingrese nuevo correo: ");
+                                                                        correo = input.next();
+                                                                        lista2.get(pos).getLista().get(pos).setCorreo(correo);
+                                                                        break;
+
+                                                                    case 6:
+                                                                        String t;
+                                                                        System.out.print("Ingrese nuevo nacimiento: ");
+                                                                        t = input.next();
+                                                                        nacimiento = df.parse(t);
+                                                                        lista2.get(pos).getLista().get(pos).setNacimiento(nacimiento);
+                                                                        break;
+                                                                }
+
+                                                                break;
+
+                                                            case 3:
+                                                                System.out.print("1. Ropa");
+                                                                System.out.println("2. Juguetes");
+                                                                System.out.println("3. comida");
+                                                                System.out.print("Ingrese posicion del producto a modificar");
+                                                                int pos2;
+                                                                pos2 = input.nextInt();
+
+                                                                if (pos2 == 1) {
+                                                                    for (Object r : lista2.get(pos).getListp()) {
+                                                                        System.out.println(lista2.get(pos).getListp().indexOf(r) + ") " + r);
+                                                                    }
+                                                                    System.out.print("Ingrese la posicion del Producto a modificar: ");
+                                                                    pos = input.nextInt();
+                                                                    System.out.println("1. Modificar Genero");
+                                                                    System.out.println("2. Moficar talla");
+                                                                    System.out.println("1. Modificar Descripcion");
+                                                                    System.out.println("2. Modificar Nombre");
+                                                                    System.out.println("3. Username Precio");
+                                                                    System.out.print("Ingrese la posicion a modificar: ");
+                                                                    pos5 = input.nextInt();
+                                                                    switch (pos5) {
+                                                                        case 1:
+                                                                            String genero;
+                                                                            System.out.print("Ingrese nuevo Genero: ");
+                                                                            genero = input.next();
+                                                                            ((Ropa) lista2.get(pos2).getListp().get(pos2)).setGenero(genero);
+                                                                            break;
+
+                                                                        case 2:
+                                                                            String talla;
+                                                                            System.out.print("Ingrese nuevo Talla: ");
+                                                                            talla = input.next();
+                                                                            ((Ropa) lista2.get(pos2).getListp().get(pos2)).setTalla(talla);
+                                                                            break;
+
+                                                                        case 3:
+
+                                                                            System.out.print("Ingrese nuevo Descripcion: ");
+                                                                            descripcion = input.next();
+                                                                            ((Ropa) lista2.get(pos2).getListp().get(pos2)).setDespcrip(descripcion);
+                                                                            break;
+
+                                                                        case 4:
+
+                                                                            System.out.print("Ingrese nuevo Nombre: ");
+                                                                            nombre = input.next();
+                                                                            ((Ropa) lista2.get(pos2).getListp().get(pos2)).setNombre(nombre);
+                                                                            break;
+
+                                                                        case 5:
+
+                                                                            System.out.print("Ingrese nuevo Precio: ");
+                                                                            precio = input.nextDouble();
+                                                                            ((Ropa) lista2.get(pos2).getListp().get(pos2)).setPrecio(precio);
+                                                                            break;
+                                                                    }
+                                                                }
+
+                                                                if (pos2 == 2) {
+                                                                    for (Object r : lista2.get(pos).getListp()) {
+                                                                        System.out.println(lista2.get(pos).getListp().indexOf(r) + ") " + r);
+                                                                    }
+                                                                    System.out.print("Ingrese la posicion del Producto a modificar: ");
+                                                                    pos = input.nextInt();
+
+                                                                    System.out.println("1. Modificar Descripcion");
+                                                                    System.out.println("2. Modificar Nombre");
+                                                                    System.out.println("3. Username Precio");
+                                                                    System.out.print("Ingrese la posicion a modificar: ");
+                                                                    pos5 = input.nextInt();
+                                                                    switch (pos5) {
+                                                                        case 1:
+
+                                                                            System.out.print("Ingrese nuevo Descripcion: ");
+                                                                            descripcion = input.next();
+                                                                            ((Juguetes) lista2.get(pos2).getListp().get(pos2)).setDespcrip(descripcion);
+                                                                            break;
+
+                                                                        case 2:
+
+                                                                            System.out.print("Ingrese nuevo Nombre: ");
+                                                                            nombre = input.next();
+                                                                            ((Juguetes) lista2.get(pos2).getListp().get(pos2)).setNombre(nombre);
+                                                                            break;
+
+                                                                        case 3:
+
+                                                                            System.out.print("Ingrese nuevo Precio: ");
+                                                                            precio = input.nextDouble();
+                                                                            ((Juguetes) lista2.get(pos2).getListp().get(pos2)).setPrecio(precio);
+                                                                            break;
+                                                                    }
+                                                                }
+
+                                                                if (pos2 == 3) {
+                                                                    for (Object r : lista2.get(pos).getListp()) {
+                                                                        System.out.println(lista2.get(pos).getListp().indexOf(r) + ") " + r);
+                                                                    }
+                                                                    System.out.print("Ingrese la posicion del Producto a modificar: ");
+                                                                    pos = input.nextInt();
+
+                                                                    System.out.println("1. Modificar Descripcion");
+                                                                    System.out.println("2. Modificar Nombre");
+                                                                    System.out.println("3. Modificar Precio");
+                                                                    System.out.println("4. Modificar tipo");
+                                                                    System.out.println("5. Modificar fecha caducidad");
+                                                                    System.out.print("Ingrese la posicion a modificar: ");
+                                                                    pos5 = input.nextInt();
+                                                                    switch (pos5) {
+                                                                        case 1:
+
+                                                                            System.out.print("Ingrese nuevo Descripcion: ");
+                                                                            descripcion = input.next();
+                                                                            ((Comida) lista2.get(pos2).getListp().get(pos2)).setDespcrip(descripcion);
+                                                                            break;
+
+                                                                        case 2:
+
+                                                                            System.out.print("Ingrese nuevo Nombre: ");
+                                                                            nombre = input.next();
+                                                                            ((Comida) lista2.get(pos2).getListp().get(pos2)).setNombre(nombre);
+                                                                            break;
+
+                                                                        case 3:
+
+                                                                            System.out.print("Ingrese nuevo Precio: ");
+                                                                            precio = input.nextDouble();
+                                                                            ((Comida) lista2.get(pos2).getListp().get(pos2)).setPrecio(precio);
+                                                                            break;
+
+                                                                        case 4:
+                                                                            String tip;
+                                                                            System.out.print("Ingrese nuevo tipo: ");
+                                                                            tip = input.next();
+                                                                            ((Comida) lista2.get(pos2).getListp().get(pos2)).setTipo(tip);
+                                                                            break;
+
+                                                                        case 5:
+                                                                            String t;
+                                                                            System.out.print("Ingrese nueva fecha de caducidad(dd/MM/yyyy): ");
+                                                                            t = input.next();
+                                                                            Date caducidad = df.parse(t);
+                                                                            ((Comida) lista2.get(pos2).getListp().get(pos2)).setCaducidad(caducidad);
+                                                                            break;
+                                                                    }
+                                                                }
+
+                                                                break;
+                                                        }
+                                                        break;
+
+                                                }
+                                                break;
+
+                                            case 5:
                                                 System.out.println("1. Locales\n"
                                                         + "2. personas"
                                                         + "\n3. Productos");
@@ -321,12 +562,12 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                             }
                                             System.out.println("Ingrese la posicion del producto que desea comprar: ");
                                             pos4 = input.nextInt();
-                                            
+
                                             preci = lista3.get(pos4).getPrecio();
-                                            descuento = preci*0.50;
+                                            descuento = preci * 0.50;
                                             System.out.println(preci);
                                             dinero = ((Clientes) lista.get(pos4)).getDinero();
-                                            dinero = dinero-(preci-descuento);
+                                            dinero = dinero - (preci - descuento);
                                             ((Clientes) lista.get(pos4)).setDinero(dinero);
                                             carrito.add(lista3.get(pos4).getNombre());
                                             break;
@@ -348,23 +589,22 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                             }
                                             Random rr = new Random();
                                             int random = 0 + comida.size();
-                                            System.out.println("La promocion del dia : "+comida.get(random));            
+                                            System.out.println("La promocion del dia : " + comida.get(random));
                                             System.out.println("Ingrese la posicion de la comida que desea comprar: ");
                                             pos4 = input.nextInt();
                                             preci = lista3.get(pos4).getPrecio();
                                             dinero = ((Clientes) lista.get(pos4)).getDinero();
                                             if (pos4 == random) {
-                                                descuento = preci*050;
-                                                dinero = dinero-(preci-descuento);
-                                            }else{
-                                            dinero = dinero-preci;
+                                                descuento = preci * 050;
+                                                dinero = dinero - (preci - descuento);
+                                            } else {
+                                                dinero = dinero - preci;
                                             }
                                             System.out.println(preci);
                                             ((Clientes) lista.get(pos4)).setDinero(dinero);
                                             carrito.add(comida.get(pos4));
                                             break;
                                     }
-
                                     break;
 
                                 case 0:
