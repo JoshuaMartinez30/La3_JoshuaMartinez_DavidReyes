@@ -16,6 +16,10 @@ ArrayList<Productos> compras;
         
     }
 
+    public Clientes(ArrayList<Productos> compras) {
+        this.compras = compras;
+    }
+    
     public double getDinero() {
         return dinero;
     }
