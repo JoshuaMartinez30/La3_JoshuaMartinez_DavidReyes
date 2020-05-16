@@ -4,12 +4,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Lab3_JoshuaMartinez_DavidReyes {
-static int cont=0;
+
+    static int cont = 0;
+
     public static void main(String[] args) throws ParseException {
-        char resp = 's', resp1='s';
+        char resp = 's', resp1 = 's';
         Scanner input = new Scanner(System.in);
         int opcion, opc2, opc3, opc4, opc5;
         String horario, ID, username, contraseña, correo, f;
@@ -22,6 +25,7 @@ static int cont=0;
         ArrayList<Productos> lista3 = new ArrayList();
         ArrayList empleados = new ArrayList();
         ArrayList productos = new ArrayList();
+        ArrayList carrito = new ArrayList();
         while (resp1 == 's' || resp1 == 'S') {
             System.out.println("1 log in y sig in");
             System.out.println("2. Salir");
@@ -46,10 +50,10 @@ static int cont=0;
 
                             for (Object t : lista) {
                                 if (t instanceof Empleados) {
-                                    String a= lista.get(lista.indexOf(t)).getUsername();
+                                    String a = lista.get(lista.indexOf(t)).getUsername();
                                     String b = lista.get(lista.indexOf(t)).getContra();
                                     if (username.equalsIgnoreCase(a) && contraseña.equalsIgnoreCase(b)) {
-                                        tipo=2;
+                                        tipo = 2;
                                     }
                                 }
                             }
@@ -129,7 +133,7 @@ static int cont=0;
                                                         for (Object u : lista3) {
                                                             if (u instanceof Comida) {
                                                                 productos.add(u);
-                                                            } 
+                                                            }
                                                         }
                                                         Bares b = new Bares(nombre, empleados, productos, nombre);
                                                         lista2.add(b);
@@ -144,9 +148,10 @@ static int cont=0;
                                                 System.out.print("Ingrese una opcion: ");
                                                 opc5 = input.nextInt();
                                                 switch (opc5) {
-                                                    
+
                                                     case 1:
-                                                        String genero, talla;
+                                                        String genero,
+                                                         talla;
                                                         System.out.print("Ingrese genero: ");
                                                         genero = input.next();
                                                         System.out.print("Ingrese Talla: ");
@@ -162,7 +167,7 @@ static int cont=0;
                                                         Ropa r = new Ropa(genero, talla, descripcion, nombre, precio);
                                                         lista3.add(r);
                                                         break;
-                                                    
+
                                                     case 2:
                                                         System.out.print("Ingrese la descripcion: ");
                                                         input = new Scanner(System.in);
@@ -221,12 +226,12 @@ static int cont=0;
                                                         + "2. personas"
                                                         + "\n3. Productos");
                                                 System.out.print("Ingrese opcion: ");
-                                              int opcion2 = input.nextInt();
+                                                int opcion2 = input.nextInt();
                                                 switch (opcion2) {
                                                     case 1:
-                                                        
+
                                                         for (Object Ob : lista2) {
-                                                            System.out.println(lista2.indexOf(Ob)+") "+Ob);
+                                                            System.out.println(lista2.indexOf(Ob) + ") " + Ob);
                                                         }
                                                         System.out.println("ingrese la posicion");
                                                         int pos = input.nextInt();
@@ -234,7 +239,7 @@ static int cont=0;
                                                         break;
                                                     case 2:
                                                         for (Object Ob : lista) {
-                                                            System.out.println(lista.indexOf(Ob)+") "+Ob);
+                                                            System.out.println(lista.indexOf(Ob) + ") " + Ob);
                                                         }
                                                         System.out.println("ingrese la posicion");
                                                         pos = input.nextInt();
@@ -242,26 +247,25 @@ static int cont=0;
                                                         break;
                                                     case 3:
                                                         for (Object Ob : lista3) {
-                                                            System.out.println(lista3.indexOf(Ob)+") "+Ob);
+                                                            System.out.println(lista3.indexOf(Ob) + ") " + Ob);
                                                         }
                                                         System.out.println("ingrese la posicion");
                                                         pos = input.nextInt();
                                                         lista3.remove(pos);
                                                         break;
-                                                    
+
                                                 }
-                                                
-                                                
+
                                                 break;
                                         }
                                         System.out.print("Desea crear otro[S/N]:");
                                         resp = input.next().charAt(0);
-                                        
+
                                     }//fin menu admin
                                     break;
                                 case 2:
                                     System.out.println("Bienvenido empleado");
-                                    
+
                                     break;
 
                                 case 3:
@@ -273,56 +277,101 @@ static int cont=0;
                                     int pos2 = input.nextInt();
                                     switch (pos2) {
                                         case 1:
-                                            double dinero, preci;
+                                            double dinero,
+                                             preci;
                                             for (Object u : lista2) {
                                                 if (u instanceof Tiendas) {
-                                                    System.out.println(lista2.indexOf(u)+") "+u);
+                                                    System.out.println(lista2.indexOf(u) + ") " + u);
                                                 }
                                             }
                                             System.out.print("Ingrese la posicion de la tienda: ");
                                             int pos3 = input.nextInt();
                                             for (Object t : lista3) {
                                                 if (t instanceof Comida) {
-                                                    
-                                                }else{
-                                                     System.out.println(lista3.indexOf(t)+") "+t);
+
+                                                } else {
+                                                    System.out.println(lista3.indexOf(t) + ") " + t);
                                                 }
                                             }
                                             System.out.println("Ingrese la posicion del producto que desea comprar: ");
-                                            int pos4=input.nextInt();
+                                            int pos4 = input.nextInt();
                                             preci = lista3.get(pos4).getPrecio();
                                             System.out.println(preci);
-                                            dinero = ((Clientes)lista.get(pos4)).getDinero();
-                                            dinero=dinero-preci;
-                                            ((Clientes)lista.get(pos4)).setDinero(dinero);
-                                            
+                                            dinero = ((Clientes) lista.get(pos4)).getDinero();
+                                            dinero = dinero - preci;
+                                            ((Clientes) lista.get(pos4)).setDinero(dinero);
+                                            carrito.add(lista3.get(pos4).getNombre());
                                             break;
-                                        
+
                                         case 2:
+                                            double descuento;
                                             for (Object u : lista2) {
                                                 if (u instanceof Quiosco) {
-                                                    System.out.println(lista2.indexOf(u)+") "+u);
+                                                    System.out.println(lista2.indexOf(u) + ") " + u);
                                                 }
                                             }
-                                            break;
+                                            System.out.print("Ingrese la posicion de la Quisco: ");
+                                            pos3 = input.nextInt();
+                                            for (Object t : lista3) {
+                                                if (t instanceof Comida) {
+
+                                                } else {
+                                                    System.out.println(lista3.indexOf(t) + ") " + t);
+                                                }
+                                            }
+                                            System.out.println("Ingrese la posicion del producto que desea comprar: ");
+                                            pos4 = input.nextInt();
                                             
+                                            preci = lista3.get(pos4).getPrecio();
+                                            descuento = preci*0.50;
+                                            System.out.println(preci);
+                                            dinero = ((Clientes) lista.get(pos4)).getDinero();
+                                            dinero = dinero-(preci-descuento);
+                                            ((Clientes) lista.get(pos4)).setDinero(dinero);
+                                            carrito.add(lista3.get(pos4).getNombre());
+                                            break;
+
                                         case 3:
                                             for (Object u : lista2) {
                                                 if (u instanceof Bares) {
-                                                    System.out.println(lista2.indexOf(u)+") "+u);
+                                                    System.out.println(lista2.indexOf(u) + ") " + u);
                                                 }
                                             }
+                                            System.out.print("Ingrese la posicion de la Bar: ");
+                                            pos3 = input.nextInt();
+                                            ArrayList comida = new ArrayList();
+                                            for (Object t : lista3) {
+                                                if (t instanceof Comida) {
+                                                    System.out.println(lista3.indexOf(t) + ") " + t);
+                                                    comida.add(t);
+                                                }
+                                            }
+                                            Random rr = new Random();
+                                            int random = 0 + comida.size();
+                                            System.out.println("La promocion del dia : "+comida.get(random));            
+                                            System.out.println("Ingrese la posicion de la comida que desea comprar: ");
+                                            pos4 = input.nextInt();
+                                            preci = lista3.get(pos4).getPrecio();
+                                            dinero = ((Clientes) lista.get(pos4)).getDinero();
+                                            if (pos4 == random) {
+                                                descuento = preci*050;
+                                                dinero = dinero-(preci-descuento);
+                                            }else{
+                                            dinero = dinero-preci;
+                                            }
+                                            System.out.println(preci);
+                                            ((Clientes) lista.get(pos4)).setDinero(dinero);
+                                            carrito.add(comida.get(pos4));
                                             break;
                                     }
-                                    
-                                    
+
                                     break;
 
                                 case 0:
                                     System.out.print("Usuario o  contraseña es incorrecta");
                                     break;
                             }//fin log in
-                    
+
                             break;
 
                         case 2:
