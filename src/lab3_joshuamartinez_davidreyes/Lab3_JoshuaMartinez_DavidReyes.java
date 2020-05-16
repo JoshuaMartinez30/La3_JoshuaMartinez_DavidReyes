@@ -115,7 +115,7 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                                 productos.add(u);
                                                             }
                                                         }
-                                                        Quiosco q = new Quiosco(nombre, empleados, productos, gerente);
+                                                        Quiosco q = new Quiosco(nombre, empleados, productos, empleados.get(0).toString());
                                                         lista2.add(q);
                                                         break;
 
@@ -133,7 +133,7 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                                 productos.add(u);
                                                             } 
                                                         }
-                                                        Bares b = new Bares(nombre, empleados, productos, gerente);
+                                                        Bares b = new Bares(nombre, empleados, productos,empleados.get(0).toString() );
                                                         lista2.add(b);
                                                         break;
                                                 }//fin crear locales
@@ -157,7 +157,7 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                         nombre = input.nextLine();
                                                         System.out.print("Ingrese el Precio: ");
                                                         precio = input.nextDouble();
-                                                        Jueguetes j = new Jueguetes(descripcion, nombre, precio);
+                                                        Juguetes j = new Juguetes(descripcion, nombre, precio);
                                                         lista3.add(j);
                                                         break;
 
@@ -201,11 +201,48 @@ public class Lab3_JoshuaMartinez_DavidReyes {
                                                 Empleados e = new Empleados(horario, ID, username, contraseña, correo, nacimiento);
                                                 lista.add(e);
                                                 break;
+                                            case 4:
+                                                System.out.println("1. Locales\n"
+                                                        + "2. personas"
+                                                        + "\n3. Productos");
+                                                System.out.print("Ingrese opcion: ");
+                                              int opcion2 = input.nextInt();
+                                                switch (opcion2) {
+                                                    case 1:
+                                                        
+                                                        for (Object Ob : lista2) {
+                                                            System.out.println(lista2.indexOf(Ob)+") "+Ob);
+                                                        }
+                                                        System.out.println("ingrese la posicion");
+                                                        int pos = input.nextInt();
+                                                        lista2.remove(pos);
+                                                        break;
+                                                    case 2:
+                                                        for (Object Ob : lista) {
+                                                            System.out.println(lista.indexOf(Ob)+") "+Ob);
+                                                        }
+                                                        System.out.println("ingrese la posicion");
+                                                        pos = input.nextInt();
+                                                        lista.remove(pos);
+                                                        break;
+                                                    case 3:
+                                                        for (Object Ob : lista3) {
+                                                            System.out.println(lista3.indexOf(Ob)+") "+Ob);
+                                                        }
+                                                        System.out.println("ingrese la posicion");
+                                                        pos = input.nextInt();
+                                                        lista3.remove(pos);
+                                                        break;
+                                                    
+                                                }
+                                                
+                                                
+                                                break;
                                         }
                                     }//fin menu de gererente
                                     break;
                                 case 2:
-
+                                    
                                     break;
 
                                 case 3:
